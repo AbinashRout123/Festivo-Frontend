@@ -1,0 +1,53 @@
+<!-- <app-admin-header></app-admin-header> -->
+
+<!-- <div class="container-fluid">
+  <div class="row"> -->
+<!-- <div class="col-lg-2">
+      <app-adminsidepanel></app-adminsidepanel>
+    </div> -->
+<!-- <div class="col-lg">
+
+      <div class="container"> -->
+<div class="table-wrapper">
+  <div class="table-title">
+    <div class="row">
+      <div class="col-sm-8">
+        <h2><b>Product Management</b></h2>
+      </div>
+      <div class="col-sm-4">
+        <button type="button" class="btn btn-info add-new" [routerLink]="['/product-create']"><i class="fa fa-plus"></i>
+          Add New</button>
+      </div>
+    </div>
+  </div>
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Price</th>
+        <th>Quantity</th>
+        <th>Manage</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let prod of products">
+        <td>{{prod.productName}}</td>
+        <td>{{prod.productDescription}}</td>
+        <td>&#8377;{{prod.productPrice}}</td>
+        <td>{{prod.quantity}}</td>
+        <td>
+          <a class="add" title="Add" data-toggle="tooltip"><i class="material-icons">&#xE03B;</i></a>
+          <a [routerLink]="['/product-edit', prod.productId]" class="edit" title="Edit" data-toggle="tooltip"><i
+              class="material-icons">&#xE254;</i></a>
+          <a (click)=deleteProduct(prod.productId) class="delete" title="Delete" data-toggle="tooltip"><i
+              class="material-icons">&#xE872;</i></a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<!-- </div>
+    </div>
+  </div>
+</div> -->

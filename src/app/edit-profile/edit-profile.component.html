@@ -1,0 +1,67 @@
+<div class="container">
+  <h2 class="font-weight text-warning">Edit Profile</h2>
+  <hr>
+  <div class="row">
+    <!-- left column -->
+    <div class="col-md-3">
+      <div class="text-center">
+        <img src="https://cdn4.iconfinder.com/data/icons/pretty_office_3/256/sign-up.png"
+          class="avatar img-circle" alt="avatar">
+      </div>
+    </div>
+
+    <!-- edit form column -->
+    <div class="col-md-9 personal-info">
+
+      <h3>Personal info</h3>
+
+      <form class="form-horizontal" role="form" (ngSubmit)="editUser(ed)" #ed="ngForm">
+        <div>
+          <div class="form-group">
+            <label class="col-lg-3 control-label">First name:</label>
+            <div class="col-lg-8">
+              <input class="form-control" type="text" placeholder="First Name" id="firstName" name="firstName"
+                [(ngModel)]="model.firstName">
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-lg-3 control-label">Last name:</label>
+            <div class="col-lg-8">
+              <input class="form-control" type="text" placeholder="Last Name" id="lastName" name="lastName"
+                [(ngModel)]="model.lastName">
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-lg-3 control-label">Email:</label>
+            <div class="col-lg-8">
+              <input class="form-control" type="text" placeholder="Email" id="email" name="email" [(ngModel)]="model.email">
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-md-3 control-label">Phone Number:</label>
+            <div class="col-md-8">
+              <input class="form-control" type="text" placeholder="Phone Number" id="contact" name="contact"
+                [(ngModel)]="model.contact">
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-md-3 control-label">Password:</label>
+            <div class="col-md-8">
+              <input class="form-control" type="password" placeholder="Password" id="password" name="password"
+                [(ngModel)]="model.password">
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-md-3 control-label"></label>
+            <div class="col-md-8">
+              <input type="submit" class="btn btn-outline-primary rounded-pill" value="Save Changes"/>
+              <span></span> &nbsp;
+              <input type="reset" class="btn btn-outline-danger rounded-pill" [routerLink]="['/user-profile']" routerLinkActive="router-link-active"  value="Cancel">
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+<hr>

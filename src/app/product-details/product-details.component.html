@@ -1,0 +1,71 @@
+<!-- <br><br>
+<div class="container">
+  <div class="col-md-2">
+    <div *ngIf="products">
+      <img src="{{products.productImage}}" alt="">
+    </div>
+  </div>
+
+  <div class="col-md-10" *ngIf="products">
+    <ul>
+      <ul> <strong>Name:</strong>
+        <li>{{products.productName}}</li>
+      </ul>
+      <ul><strong>Features:</strong>
+        <li>{{products.productDescription}}</li>
+      </ul>
+      <ul><strong>Price:</strong>
+        <li>&#8377;{{products.productPrice}}/-</li>
+      </ul>
+    </ul>
+    <div class="card-body">
+      <button type="button" (click)="AddCart(products.productId)" class="btn btn-info">Add to Bag</button>
+    </div>
+  </div>
+</div> -->
+
+
+
+
+<div class="card">
+  <div class="row">
+    <aside class="col-sm-5 border-right">
+      <article class="gallery-wrap">
+        <div class="img-big-wrap" *ngIf="products">
+          <div><img src="{{products.productImage}}" style="height: 500px; width: 550px; object-fit: scale-down"></div>
+        </div> <!-- slider-product.// -->
+      </article> <!-- gallery-wrap .end// -->
+    </aside>
+    <aside class="col-sm-7" *ngIf="products">
+      <article class="card-body p-5">
+        <h3 class="title mb-3">{{products.productName}}</h3>
+
+        <p class="price-detail-wrap">
+          <span class="price h3 text-warning">
+            <span class="currency">INR &#8377;{{products.productPrice}}/-</span>
+          </span>
+        </p> <!-- price-detail-wrap .// -->
+        <dl class="item-property">
+          <dt>Features:</dt>
+          <dd>
+            <ul>
+                <li *ngFor="let dep of descriptionArray">{{dep}}</li>
+            </ul>
+          </dd>
+        </dl>
+        <dl class="param param-feature">
+          <dt>Delivery</dt>
+          <dd>PAN India</dd>
+        </dl> <!-- item-property-hor .// -->
+
+        <hr>
+        <hr>
+        <a [routerLink]="['/checkout']" routerLinkActive="router-link-active"
+          class="btn btn-lg btn-outline-primary text-uppercase rounded-pill"> Buy now </a>
+          &nbsp;
+        <a (click)="AddCart(products.productId)" class="btn btn-lg btn-outline-primary text-uppercase rounded-pill"> <i
+            class="fas fa-shopping-bag"></i> Add to Bag </a>
+      </article> <!-- card-body.// -->
+    </aside> <!-- col.// -->
+  </div> <!-- row.// -->
+</div> <!-- card.// -->

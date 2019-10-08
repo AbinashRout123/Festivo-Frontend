@@ -1,0 +1,21 @@
+<h3 class="font-weight text-primary">Filtered Results </h3>
+<div class="container">
+  <div class="row">
+    <div *ngFor="let prod of products" class="col-md-4">
+      <div class="card" style="width: 20rem;">
+        <img [routerLink]="['/product-details',prod.productId]" src="{{prod.productImage}}" class="card-img-top"
+          alt="ProductImage" style="height: 300px; width: 300px; object-fit: scale-down" />
+        <div class="card-body" id="box">
+          <h5 class="card-title">{{ prod.productName }}</h5>
+        </div>
+        <ul class="list-group list-group-flush font-weight-bold text-primary">
+          <li class="list-group-item" >&#8377;{{ prod.productPrice}}/-</li>
+        </ul>
+        <div class="card-body">
+          <a (click)="AddCart(prod.productId)" class="btn btn-lg btn-outline-info text-uppercase rounded-pill"> <i
+              class="fas fa-shopping-bag"></i> Add to Bag </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

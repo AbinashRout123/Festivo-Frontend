@@ -1,0 +1,77 @@
+<!-- <div class="row">
+  <div class="col-75"> -->
+<!-- <div class="container-fluid"> -->
+<!-- <div class="row col"> -->
+<div class="row justify-content-center py-4">
+  <div class="col-lg-6 col-lg-3 mt-4 border p-4 rounded">
+    <form [formGroup]="service.formModel" (submit)="onSubmit()">
+
+
+
+      <h3>Billing Address</h3>
+      <label for="firstName"><i class="fa fa-user"></i> First Name</label>
+      <label class="text-warning"
+        *ngIf="service.formModel.get('firstName').touched && service.formModel.get('firstName').errors?.required">Please
+        fill out this field</label>
+      <input type="text" class="form-control" id="firstName" formControlName="firstName" placeholder="First Name">
+      <label for="lastName"><i class="fa fa-user"></i> Last Name</label>
+      <label class="text-warning"
+        *ngIf="service.formModel.get('lastName').touched && service.formModel.get('lastName').errors?.required">Please
+        fill out this field</label>
+      <input type="text" class="form-control" id="lastName" formControlName="lastName" placeholder="Last Name">
+      <label for="email"><i class="fa fa-envelope"></i> Email</label>
+      <label class="text-warning"
+        *ngIf="service.formModel.get('email').touched && service.formModel.get('email').errors?.required">Please enter
+        your email</label>
+      <input type="text" class="form-control" id="email" formControlName="email" placeholder="Email">
+      <label for="address"><i class="fa fa-address-card-o"></i> Address</label>
+      <label class="text-warning"
+        *ngIf="service.formModel.get('address').touched && service.formModel.get('address').errors?.required">Please
+        enter your address</label>
+      <input type="text" class="form-control" id="address" formControlName="address" placeholder="Address">
+      <label for="city"><i class="fa fa-institution"></i> City</label>
+      <label class="text-warning"
+        *ngIf="service.formModel.get('city').touched && service.formModel.get('city').errors?.required">Please enter
+        your city</label>
+      <input type="text" class="form-control" id="city" formControlName="city" placeholder="City">
+      <label for="phoneNumber"><i class="fas fa-phone-alt"></i> Phone Number</label>
+      <label class="text-warning"
+        *ngIf="service.formModel.get('phoneNumber').touched && service.formModel.get('phoneNumber').errors?.required">Please
+        enter your contact number</label>
+      <input type="text" class="form-control" id="phoneNumber" formControlName="phoneNumber" placeholder="Phone Number">
+
+      <div class="row">
+        <div class="col-50">
+          <label for="state">State</label>
+          <label class="text-warning"
+            *ngIf="service.formModel.get('state').touched && service.formModel.get('state').errors?.required">Please
+            fill out this field</label>
+          <input type="text" class="form-control" id="state" formControlName="state" placeholder="State">
+        </div>
+        <div class="col-50">
+          <label for="pinCode">Pin Code</label>
+          <label class="text-warning"
+            *ngIf="service.formModel.get('pinCode').touched && service.formModel.get('pinCode').errors?.required">Please
+            fill out this field</label>
+          <input type="text" class="form-control" id="pinCode" formControlName="pinCode" placeholder="Pin Code">
+        </div>
+      </div>
+
+      <label>
+        <input type="checkbox" checked="checked" name="sameAddress"> Shipping address same as billing address
+      </label>
+      <button type="submit" class="btn btn-warning w-100" 
+        [disabled]="!service.formModel.valid">Proceed to Checkout</button>
+    </form>
+  </div>
+
+  <div class="col-md-4 col-lg-4">
+    <!-- <div class="col-md-3"> -->
+    <div class="text-center">
+      <img src="https://aidm.org.in/wp-content/uploads/2018/10/address-icon.png" class="avatar img-circle" alt="avatar">
+    </div>
+
+  </div>
+
+</div>
+

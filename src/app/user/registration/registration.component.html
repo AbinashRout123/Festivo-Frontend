@@ -1,0 +1,73 @@
+<h3 class="text-center my-3 font-weight text-warning">User Registration</h3>
+<hr style="width: 70%; border-color:blue">
+
+<div class="row justify-content-center py-4 ">
+
+  <div class="col-md-4 col-lg-4">
+    <div class="col-md-3">
+      <div class="text-center">
+        <img src="http://www.safesnooper.eu/Content/Images/Actions-contact-new-icon.png" class="avatar img-circle"
+          alt="avatar">
+      </div>
+    </div>
+
+  </div>
+  <div class="col-md-6 col-lg-3 mt-4 border p-4 rounded">
+
+    <form [formGroup]="service.formModel" autocomplete="off" (submit)="onSubmit()">
+      <div class="form-group required">
+
+        <input type="text" class="form-control" id="firstName" formControlName="FirstName" placeholder="First Name">
+        <label class="text-danger"
+          *ngIf="service.formModel.get('FirstName').touched && service.formModel.get('FirstName').errors?.required">This
+          field is mandatory</label>
+      </div>
+
+      <div class="form-group">
+
+        <input class="form-control" id="lastName" formControlName="LastName" placeholder="Last Name">
+      </div>
+
+      <div class="form-group required">
+
+        <input class="form-control" id="email" formControlName="Email" placeholder="Email">
+        <label class="text-danger"
+          *ngIf="service.formModel.get('Email').touched && service.formModel.get('Email').errors?.email">Invalid
+          Email</label>
+      </div>
+
+      <div>
+        <div class="form-group required">
+
+          <input type="password" class="form-control" id="pass" formControlName="Password" placeholder="Password" minlength="6" aria-errormessage="Password should be minimum 6 characters">
+        </div>
+      </div>
+
+      <div class="form-group required">
+
+        <input class="form-control" id="contact" formControlName="Contact" placeholder="Phone Number" maxlength="10" minlength="10">
+      </div>
+
+      <div class="form-group required">
+
+        <select class="form-control" id="gender" formControlName="Gender">
+          <option>Male</option>
+          <option>Female</option>
+          <option>Other</option>
+        </select>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group col-md-8 offset-md-2">
+          <button type="submit" class="btn btn-info rounded-pill btn-lg btn-block"
+            [disabled]="!service.formModel.valid">Sign Up</button>
+        </div>
+      </div>
+
+    </form>
+    <div class="dropdown-divider"></div>
+    <a [routerLink]="['/user/login']">Already have an account? <span class="btn-info rounded-pill px-3 py-2">Sign
+        In</span></a>
+  </div>
+
+</div>

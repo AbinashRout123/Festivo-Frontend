@@ -1,0 +1,56 @@
+<div *ngIf="!_user.isAdminAuthenticated()">
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#" class="fab fa-foursquare fa-2x"></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto ml-4">
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            Category
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a *ngFor="let c of categoryList" class="dropdown-item" [routerLink]="['/product',c.categoryId]"
+              routerLinkActive="router-link-active">{{c.categoryName}}</a>
+          </div>
+        </li>
+        <form class="form-inline my-2 my-lg-0 ml-4 ">
+          <input class="form-control mr-lg-2 rounded-pill" type="search" placeholder="Let me assist you !" aria-label="Search"
+            [(ngModel)]="Name" id="Name" name="Name" (input)="Search(Name)" size="70">
+          <button class="btn btn-outline-success rounded-pill my-2 my-sm-0" type="submit">Search</button>
+        </form>
+      </ul>
+
+      <ul class=mb-0>
+        <li class="nav-item active" id="rightMargin">
+          <a class="nav-link " [routerLink]="['/cart']" routerLinkActive="router-link-active"
+            class="fas fa-shopping-bag fa-2x"><span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item dropdown" id="rightMargin">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false" class="fas fa-user-circle fa-2x">
+          </a>
+          <div class="dropdown-menu " aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" [routerLink]="['/user-profile']" routerLinkActive="router-link-active">My
+              Profile</a>
+            <a class="dropdown-item" [routerLink]="['/order-history']" routerLinkActive="router-link-active">My
+              Orders</a>
+            <div class="dropdown-divider"></div>
+            <a *ngIf="!_user.isAuthenticated()" class="dropdown-item" [routerLink]="['/user/login']">Log In</a>
+            <a *ngIf="!_user.isAuthenticated()" class="dropdown-item" [routerLink]="['/user/registration']">Sign Up</a>
+            <a *ngIf="_user.isAuthenticated()" class="dropdown-item" [routerLink]="['/app-landing-page']"
+              (click)="logout()">Log Out</a>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </nav>
+</div>
+
+
+<router-outlet></router-outlet>

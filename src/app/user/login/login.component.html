@@ -1,0 +1,40 @@
+
+  <div class="row justify-content-center pt-4" id="login" style="height: 600px">
+    <div class="col-sm-4 mt-4">
+
+      <div class="card">
+        <article class="card-body">
+          <a [routerLink]="['/user/registration']" class="float-right btn btn-outline-primary rounded-pill">New around
+            here? Sign up</a>
+          <h4 class="card-title mb-4 mt-1">Sign In</h4>
+          <p>
+            <a class="btn btn-block btn-outline-info rounded-pill" (click)="signInWithGoogle()"> <i
+                class="fab fa-google"></i>   Login via Google</a>
+          </p>
+          <hr>
+          <form [formGroup]="service.formModelLogin" autocomplete="on" (submit)="onSubmit()">
+            <div class="form-group">
+              <input formControlName="Email" id="email" autocomplete="username" placeholder="Email" class="form-control" type="email">
+            </div> <!-- form-group// -->
+            <div class="form-group">
+              <input class="form-control" autocomplete="current-password" formControlName="Password" id="pass" placeholder="Password"
+                placeholder="Password" type="password">
+            </div> <!-- form-group// -->
+            <div class="row">
+              <div class="col-md-6">
+                <div class="form-group">
+                  <button type="submit" class="btn btn-outline-info btn-block rounded-pill"> Login </button>
+                </div> <!-- form-group// -->
+              </div>
+              <div class="col-md-6 text-right">
+                <a class="small" href="#">Forgot password?</a>
+              </div>
+            </div> <!-- .row// -->
+          </form>
+        </article>
+      </div> <!-- card.// -->
+
+    </div> <!-- col.// -->
+
+  </div> <!-- row.// -->
+

@@ -1,0 +1,52 @@
+<form [formGroup]="service.formModel" (submit)="onSubmit()">
+
+  <div class="row justify-content-center py-4">
+    <div class="col-lg-6 col-lg-3 mt-4 border p-4 rounded">
+      <h3>Payment</h3>
+      <label for="fname">Accepted Cards</label>
+      <div class="icon-container">
+        <i class="fab fa-cc-visa" style="color:navy;"></i>
+        <i class="fab fa-cc-amex" style="color:blue;"></i>
+        <i class="fab fa-cc-mastercard" style="color:red;"></i>
+        <i class="fab fa-cc-discover" style="color:orange;"></i>
+      </div>
+      <label for="nameOnCard">Name on Card</label>
+      <label class="text-warning"
+        *ngIf="service.formModel.get('nameOnCard').touched && service.formModel.get('nameOnCard').errors?.required">Please
+        fill out this field</label>
+      <input type="text" id="nameOnCard" formControlName="nameOnCard" placeholder="Name on the Card">
+
+      <label for="cardNumber">Card number</label>
+      <label class="text-warning"
+        *ngIf="service.formModel.get('cardNumber').touched && service.formModel.get('cardNumber').errors?.required">Please
+        fill out this field</label>
+      <input type="text" id="cardNumber" formControlName="cardNumber" placeholder="xxxx-xxxx-xxxx-xxxx" maxlength="16">
+
+      <label for="monthOfExpiry">Month Of Expiry</label>
+      <label class="text-warning"
+        *ngIf="service.formModel.get('monthOfExpiry').touched && service.formModel.get('monthOfExpiry').errors?.required">Please
+        fill out this field</label>
+      <input type="text" id="monthOfExpiry" formControlName="monthOfExpiry" placeholder="Month of expiry">
+
+      <div class="row">
+        <div class="col-50">
+          <label for="yearOfExpiry"> Year Of Expiry</label>
+          <label class="text-warning"
+            *ngIf="service.formModel.get('yearOfExpiry').touched && service.formModel.get('yearOfExpiry').errors?.required">Please
+            fill out this field</label>
+          <input type="text" id="yearOfExpiry" formControlName="yearOfExpiry" placeholder="Year of expiry">
+        </div>
+        <div class="col-50">
+          <label for="cvv">CVV</label>
+          <label class="text-warning"
+            *ngIf="service.formModel.get('cvv').touched && service.formModel.get('cvv').errors?.required">Please
+            fill out this field</label>
+          <input type="text" id="cvv" formControlName="cvv" placeholder="CVV" maxlength="3">
+        </div>
+      </div>
+      <button type="submit" class="btn btn-success btn-block rounded-pill" [disabled]="!service.formModel.valid"
+        (click)="orderPlaced()">Place Order</button>
+    </div>
+
+  </div>
+</form>

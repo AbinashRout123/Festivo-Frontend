@@ -1,0 +1,25 @@
+li{
+  list-style-type: none;
+  display: inline;
+}
+a:active, a:visited  {
+  text-decoration: none;
+  color:black ;
+
+}
+
+a:hover{
+  text-decoration: none;
+}
+
+#rightMargin{
+  margin-right: 100px;
+  margin-top: 20px;
+}
+
+
+
+
+
+
+
